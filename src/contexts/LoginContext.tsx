@@ -1,8 +1,12 @@
 import React, { createContext, useRef, useState } from 'react'
 
+type UserData = {
+  name: string
+  authToken: string
+}
 interface LoginContextType {
   isLoged: boolean
-  authToken: string
+  userData: UserData
 }
 
 type Props = {
@@ -11,11 +15,20 @@ type Props = {
 
 export const LoginContext = createContext<LoginContextType | null>(null)
 
-export const LoginProvider:React.FC<Props> = ({ children }) => {
+export const LoginProvider: React.FC<Props> = ({ children }) => {
   const [isLoged] = useState<boolean>(false)
   const authToken = useRef<string>('')
+  
   return (
-    <LoginContext.Provider value={{ isLoged, authToken: authToken.current }}>
+    <LoginContext.Provider
+      value={{
+        isLoged,
+        userData: {
+          name: 'Juan Garcia',
+          authToken: authToken.current
+        }
+      }}
+    >
       {children}
     </LoginContext.Provider>
   )
