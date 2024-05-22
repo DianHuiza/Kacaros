@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { Adjustmentsv, ArrowLeft, SearchIcon } from '../../assets/icons'
-import useClickOut from '../../hooks/useClickOut'
+import { useClickOut } from '../../hooks'
 import { Category, UserDropdown, Filters } from '..'
 
 export const Header = () => {

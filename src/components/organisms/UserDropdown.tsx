@@ -13,7 +13,7 @@ export const UserDropdown: React.FC = () => {
       {isLoged
         ? (
           <>
-            Mondongo
+            
           </>
           )
         : (

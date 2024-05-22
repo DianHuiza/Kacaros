@@ -1,5 +1,5 @@
 import React, { JSX, useCallback, useState } from 'react'
-import useClickOut from '../../hooks/useClickOut'
+import { useClickOut } from '../../hooks'
 
 type Props = {
   children: React.ReactNode
