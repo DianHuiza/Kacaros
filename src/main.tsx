@@ -6,6 +6,7 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 
 import { Home, Search } from './pages'
 import { LoginProvider, MultiFiltersProvider } from './contexts'
+import { SearchProvider } from './contexts/SearchContext'
 
 const queryClient = new QueryClient()
 
@@ -26,7 +27,9 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
     <QueryClientProvider client={queryClient}>
       <MultiFiltersProvider>
         <LoginProvider>
-          <RouterProvider router={router} />
+          <SearchProvider>
+            <RouterProvider router={router} />
+          </SearchProvider>
         </LoginProvider>
       </MultiFiltersProvider>
     </QueryClientProvider>
