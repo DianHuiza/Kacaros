@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
 import { LoginContext } from '../../contexts/LoginContext'
-import { GuessButton, LoginButton, SignUpButton, UserButton, Dropdown } from '../'
+import { LoginButton, SignUpButton, UserButton, Dropdown } from '../'
 
 export const UserDropdown: React.FC = () => {
   const loginData = useContext(LoginContext)
@@ -9,7 +9,7 @@ export const UserDropdown: React.FC = () => {
   }
   const { isLoged, userData } = loginData
   return (
-    <Dropdown trigger={<UserButton label={isLoged ? userData.name : 'Login'} />}>
+    <Dropdown trigger={<UserButton label={isLoged ? userData.name : 'Guess Secion'} />}>
       {isLoged
         ? (
           <>
@@ -18,7 +18,6 @@ export const UserDropdown: React.FC = () => {
           )
         : (
           <>
-            <GuessButton />
             <LoginButton />
             <SignUpButton />
           </>

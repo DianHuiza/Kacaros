@@ -1,7 +1,10 @@
 import React, { createContext, useRef } from 'react'
 interface MultiFiltersType {
-  adult: boolean
+  include_adult: boolean
   language: string
+  primary_release_year: string
+  region: string
+  year: string
 }
 
 type Props = {
@@ -12,9 +15,13 @@ export const MultiFiltersContext = createContext<MultiFiltersType | null>(null)
 
 export const MultiFiltersProvider:React.FC<Props> = ({ children }) => {
   const filters = useRef<MultiFiltersType>({
-    adult: false,
-    language: 'enUS'
+    include_adult: false,
+    language: '',
+    primary_release_year: '',
+    region: '',
+    year: ''
   })
+  
   return (
     <MultiFiltersContext.Provider value={filters.current}>
       {children}

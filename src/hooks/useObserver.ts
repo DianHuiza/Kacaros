@@ -1,8 +1,8 @@
 import { useEffect, useRef } from 'react'
 import { Callback } from '../types'
 
-export function useObserver (callback: Callback) {
-  const observerRef = useRef<Element>(null)
+export function useObserver <T extends HTMLElement> (callback: Callback) {
+  const observerRef = useRef<T>(null)
 
   useEffect(() => {
     const observer = new IntersectionObserver((entries) => {

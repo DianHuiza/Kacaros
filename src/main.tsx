@@ -3,10 +3,8 @@ import ReactDOM from 'react-dom/client'
 import './index.css'
 import { RouterProvider, createHashRouter } from 'react-router-dom'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
-
-import { Home, Search } from './pages'
+import { Home, MovieDetails, Search } from './pages'
 import { LoginProvider, MultiFiltersProvider } from './contexts'
-import { SearchProvider } from './contexts/SearchContext'
 
 const queryClient = new QueryClient()
 
@@ -16,8 +14,16 @@ const router = createHashRouter([
     element: <Home />
   },
   {
-    path: '/search',
+    path: '/search/:search',
     element: <Search />
+  },
+  {
+    path: '/movie/:id',
+    element: <MovieDetails /> 
+  },
+  {
+    path: 'user',
+    element: <h1>User</h1>
   }
 ])
 
@@ -26,10 +32,8 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
     <QueryClientProvider client={queryClient}>
       <MultiFiltersProvider>
-        <LoginProvider>
-          <SearchProvider>
-            <RouterProvider router={router} />
-          </SearchProvider>
+        <LoginProvider> 
+          <RouterProvider router={router} />
         </LoginProvider>
       </MultiFiltersProvider>
     </QueryClientProvider>

@@ -1,5 +1,10 @@
+import { Header, SearchResult } from '../components'
+
 export const Search = () => {
   return (
-    <h1>Search</h1>
+    <>
+      <Header />
+      <SearchResult />
+    </>
   )
 }
