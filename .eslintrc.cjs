@@ -18,7 +18,8 @@ module.exports = {
       'warn',
       { allowConstantExport: true },
     ],
-    'no-trailing-spaces': 'off'
+    'no-trailing-spaces': 'off',
+    'react-hooks/exhaustive-deps': 'off'
   },
   parserOptions: {
     ecmaVersion: 'latest',
